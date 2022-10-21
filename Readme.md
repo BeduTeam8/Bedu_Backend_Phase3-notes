@@ -1,24 +1,45 @@
 # Table of contents
 
-- [Liga del Profe](#linkprof))
+- [Introduction](#introduction)
+- [Bedu-repo](#bedurepo)
 - [Session-01](#session-01)
+- [Session-02](#session-02)
 
-# 00 Link del repo del profe
+## Introduction
 
-[(Back to top)](#linkprof)
-https://github.com/andres2093/dw_santander_f3-c1
+Aqui estan los ejercicios de la clases de Bedu para el curso de frontend and backend con javascript. Durante esta seccion estaremos viendo los siguientes temas:
+**Fase 3 | Desarrollo Web**
 
-## 00.1 Link del repo de la bedu segun el profe
+- [x] Fundamentos de Node.js
+- [x] Módulos Esenciales
+- [x] Modelo Asíncrono y No Bloqueante
+- [x] Introducción al protocolo HTTP
+- [x] Desarrollo de Aplicaciones Web
+- [x] Desarrollo de API RESTful I
+- [x] Desarrollo de API RESTful II
+- [x] Consumo de API RESTful III
+- [x] Introduccion a la programacion con swift
 
-https://github.com/beduExpert/Backend-con-NodeJS-2022
+## BeduRepo
 
-# 01 Session 01
+This repository is for the teachers of the course.
 
-[(Back to top)](#session-01)
+[Teacher Repository](https://github.com/andres2093/dw_santander_f3-c1)
 
-[link de la session](./Session%2001/)
+### 00.1 Link del repo de la bedu segun el profe
 
-<p>
+[Bedu Node 2022 Repo](https://github.com/beduExpert/Backend-con-NodeJS-Santander-2020-2021)
 
-</p>
-## 01.1 Exercise 1
+[] falta confirmar si vamos a usar este repositorio o no
+
+## session-01
+
+[Session-01](./Session%2001/)
+
+### 01.1 Introduccion
+
+in this section.
+
+## Session-02
+
+[Session-02](./Session%2002/)
