@@ -14,8 +14,10 @@ const getPeopleData = async (url) => {
 	const data = await getPeople(url);
 	const { results, next } = data;
 	results.forEach((person) => {
-		const { name, height, mass, homeworld } = person;
-		console.log(`Name: ${name}, Height: ${height}, Mass: ${mass}`);
+		const { name, height, mass, homeworld, films } = person;
+		console.log(
+			`Name: ${name}, Height: ${height}, Mass: ${mass}, Homeworld: ${homeworld}, Homeworld: ${films}`
+		);
 	});
 	if (next) {
 		getPeopleData(next);
