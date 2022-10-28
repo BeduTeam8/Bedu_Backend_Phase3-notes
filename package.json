@@ -1,0 +1,23 @@
+{
+  "name": "18_notes",
+  "version": "1.0.0",
+  "description": "- [Introduction](#introduction)\r - [Bedu-repo](#bedurepo)\r - [Session-01](#session-01)\r - [Session-02](#session-02)\r - [Session-03](#session-03)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeduTeam8/Bedu_Backend_Phase3-notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeduTeam8/Bedu_Backend_Phase3-notes/issues"
+  },
+  "homepage": "https://github.com/BeduTeam8/Bedu_Backend_Phase3-notes#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

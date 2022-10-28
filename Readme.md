@@ -5,6 +5,7 @@
 - [Session-01](#session-01)
 - [Session-02](#session-02)
 - [Session-03](#session-03)
+- [Session-04](#session-04)
 
 ## Introduction
 
@@ -87,3 +88,25 @@ Conocer herramientas de terceros para facilitar el desarrollo y mantener nuestro
 ## session-03
 
 [Session-03](./Session%2003/)
+
+### 03.0 Objetivos
+
+Comprender el modelo asíncrono y no bloqueante de Javascript, así como el manejo de peticiones por medio de callbacks y nuevas funcionalidades de EcmaScript6.
+
+### 03.1 Prework
+
+- ¿Qué es Asincronía, concurrencia y paralelismo?
+- ¿Qué es Bloqueante y No Bloqueante?
+- ¿Qué es Síncrono y Asíncrono?
+- Definición de Callbacks, Promises y Async / Await
+- Definición de Event Loop, Call Stack y Calbaback Queue
+
+### 03.2 Work
+
+Comprender el modelo asíncrono y no bloqueante de Javascript, así como el manejo de peticiones por medio de callbacks y nuevas funcionalidades de EcmaScript6.
+
+### 03.3 postwork
+
+Conocer alternativas importantes que ayudarían a crear mejor código según sea la necesidad.
+
+## session-04
