@@ -18,8 +18,6 @@ module.exports = (sequelize) =>
 					model: "roles",
 					key: "id",
 				},
-				// default of 1
-				defaultValue: 2,
 			},
 			email: {
 				type: DataTypes.STRING,

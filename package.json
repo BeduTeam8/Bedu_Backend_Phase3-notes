@@ -2,9 +2,9 @@
   "name": "18_notes",
   "version": "1.0.0",
   "description": "- [Introduction](#introduction)\r - [Bedu-repo](#bedurepo)\r - [Session-01](#session-01)\r - [Session-02](#session-02)\r - [Session-03](#session-03)",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

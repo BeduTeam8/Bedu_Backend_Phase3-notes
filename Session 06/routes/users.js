@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 		.catch((err) =>
 			res
 				.status(500)
-				.json({ code: 500, message: "Internal server error" + err })
+				.json({ code: 500, message: "Internal server error - " + err })
 		);
 });
 
@@ -18,12 +18,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
 	const { body } = req;
 	return await sequelize.models.users
-		.create({
-			name: body.name,
-			email: body.email,
-			password: body.password,
-			roleId: body.roleId,
-		})
+		.create(req.body)
 		.then((data) => res.status(201).json(data))
 		.catch((err) =>
 			res
@@ -42,26 +37,35 @@ router.put("/:id", async (req, res) => {
 	if (!user) {
 		return res.status(404).json({ code: 404, message: "User not found" });
 	}
-	const updatedUser = await user.update({
-		name: body.name,
-		email: body.email,
-		password: body.password,
-		roleId: body.roleId,
-	});
+	const updatedUser = await user.update(req.body);
 	return res.json({ data: updatedUser });
 });
 
 // Delete a user by id
 router.delete("/:id", async (req, res) => {
-	const {
-		params: { id },
-	} = req;
-	const user = await sequelize.models.users.findByPk(id);
-	if (!user) {
-		return res.status(404).json({ code: 404, message: "User not found" });
-	}
-	await user.destroy();
-	return res.json();
+	return await sequelize.models.users
+		.findByPk(req.params.id)
+		.then((user) => {
+			if (!user) {
+				return res.status(404).json({ code: 404, message: "User not found" });
+			}
+			return user
+				.destroy()
+				.then(() =>
+					res
+						.json({ message: "User deleted successfully", user })
+						.catch((err) =>
+							res
+								.status(500)
+								.json({ code: 500, message: "Internal server error" + err })
+						)
+				);
+		})
+		.catch((err) =>
+			res
+				.status(500)
+				.json({ code: 500, message: "Internal server error" + err })
+		);
 });
 
 module.exports = router;

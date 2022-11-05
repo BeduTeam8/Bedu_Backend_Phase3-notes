@@ -30,7 +30,7 @@ const { products, reviews, orders, users, roles } = sequelize.models;
 reviews.belongsTo(products); // Relation one-to-one in reviews table
 
 // user has a one to one relation
-roles.hasMany(users);
+// roles.hasMany(users);
 
 //oders belongs to user
 orders.belongsTo(users);

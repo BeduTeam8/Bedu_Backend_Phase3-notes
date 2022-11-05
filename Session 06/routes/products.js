@@ -14,47 +14,67 @@ router.get("/", async (req, res) => {
 
 // Create a new product
 router.post("/", async (req, res) => {
-	const { body } = req;
-	const product = await sequelize.models.products.create({
-		name: body.name,
-		description: body.description,
-		price: body.price,
-		image: body.image,
-	});
-	await product.save();
-	return res.status(201).json({ data: product });
+	try {
+		const product = await sequelize.models.products.create(req.body);
+		// send sucess message with product
+		res.status(201).json({ message: "Product created", product });
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
 });
 
 // Update a product by id
 router.put("/:id", async (req, res) => {
-	const {
-		body,
-		params: { id },
-	} = req;
-	const product = await sequelize.models.products.findByPk(id);
-	if (!product) {
-		return res.status(404).json({ code: 404, message: "Product not found" });
-	}
-	const updatedProduct = await product.update({
-		name: body.name,
-		description: body.description,
-		price: body.price,
-		image: body.image,
-	});
-	return res.json({ data: updatedProduct });
+	return await sequelize.models.products
+		.findByPk(req.params.id)
+		.then((product) => {
+			if (!product) {
+				return res
+					.status(404)
+					.json({ code: 404, message: "Product not found" });
+			}
+			return product
+				.update(req.body)
+				.then((updatedProduct) =>
+					res.json({ message: "Product updated", data: updatedProduct })
+				)
+				.catch((err) =>
+					res
+						.status(500)
+						.json({ code: 500, message: "Internal server error" + err })
+				);
+		})
+		.catch((err) =>
+			res
+				.status(500)
+				.json({ code: 500, message: "Internal server error" + err })
+		);
 });
 
 // Delete a product by id
 router.delete("/:id", async (req, res) => {
-	const {
-		params: { id },
-	} = req;
-	const product = await sequelize.models.products.findByPk(id);
-	if (!product) {
-		return res.status(404).json({ code: 404, message: "Product not found" });
-	}
-	await product.destroy();
-	return res.json();
+	return await sequelize.models.products
+		.findByPk(req.params.id)
+		.then((product) => {
+			if (!product) {
+				return res
+					.status(404)
+					.json({ code: 404, message: "Product not found" });
+			}
+			return product
+				.destroy()
+				.then(() => res.json({ message: "Product deleted" }))
+				.catch((err) =>
+					res
+						.status(500)
+						.json({ code: 500, message: "Internal server error" + err })
+				);
+		})
+		.catch((err) =>
+			res
+				.status(500)
+				.json({ code: 500, message: "Internal server error" + err })
+		);
 });
 
 module.exports = router;
